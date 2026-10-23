@@ -1,0 +1,9 @@
+fn visit(value) {
+    if (value == 0) { abort; }
+    return visit(value - 1);
+}
+
+fn main() {
+    visit(3);
+    halt;
+}

@@ -1,0 +1,15 @@
+fn choose(value) {
+    if (value < 0) { return 2; }
+    return 4;
+}
+
+fn main() {
+    let value = 0;
+    input(value);
+    if (value < -2) { halt; }
+    if (value > 2) { halt; }
+    let result = choose(value);
+    if (result < 2) { abort; }
+    if (result > 4) { abort; }
+    halt;
+}

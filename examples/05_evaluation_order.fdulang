@@ -1,0 +1,15 @@
+fn read_value() {
+    let value = 0;
+    input(value);
+    return value;
+}
+
+fn difference(a, b) {
+    return a - b;
+}
+
+fn main() {
+    let result = difference(read_value(), read_value());
+    if (result != 1) { abort; }
+    halt;
+}

@@ -1,0 +1,14 @@
+fn check_pair(x, y) {
+    if (x + y != 10) { abort; }
+    return 0;
+}
+
+fn main() {
+    let x = 0;
+    input(x);
+    if (x < 0) { halt; }
+    if (x > 10) { halt; }
+    let y = 10 - x;
+    check_pair(x, y);
+    halt;
+}

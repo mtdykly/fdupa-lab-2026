@@ -1,0 +1,4 @@
+fn main() {
+    halt;
+    abort; // A1: unreachable, but still included in the static inventory.
+}

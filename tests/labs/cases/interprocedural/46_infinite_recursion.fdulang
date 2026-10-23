@@ -1,0 +1,8 @@
+fn spin() {
+    return spin();
+}
+
+fn main() {
+    spin();
+    abort;
+}

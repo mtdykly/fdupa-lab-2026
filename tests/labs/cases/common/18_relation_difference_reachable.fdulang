@@ -1,0 +1,9 @@
+fn main() {
+    let x = 0;
+    input(x);
+    if (x < 0) { halt; }
+    if (x > 10) { halt; }
+    let y = x + 3;
+    if (y - x == 3) { abort; }
+    halt;
+}

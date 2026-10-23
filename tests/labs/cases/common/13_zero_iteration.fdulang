@@ -1,0 +1,8 @@
+fn main() {
+    let i = 0;
+    while (i < 0) {
+        abort;
+    }
+    if (i != 0) { abort; }
+    halt;
+}

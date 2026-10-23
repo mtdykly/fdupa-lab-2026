@@ -1,0 +1,9 @@
+fn main() {
+    let x = 0;
+    input(x);
+    if (x < 1) { halt; }
+    if (x > 1) { halt; }
+    if (x != 1) { abort; }
+    if (x == 1) { abort; }
+    halt;
+}

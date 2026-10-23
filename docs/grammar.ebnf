@@ -1,0 +1,39 @@
+(* FDULang 0.1. Quoted text is a terminal. Commas mean concatenation.
+   | is choice, [...] is optional, {...} is zero or more repetitions.
+   EOF means the end of the token stream. Whitespace and comments are omitted.
+   Complete lexical rules, including token priority, are in language.md.
+   Static restrictions, including integer/condition categories, are in language.md. *)
+
+program        = function, { function }, EOF ;
+function       = "fn", identifier, "(", [ parameters ], ")", block ;
+parameters     = identifier, { ",", identifier } ;
+block          = "{", { statement }, "}" ;
+
+statement      = declaration | assignment | call_statement | input_statement
+               | if_statement | while_statement | return_statement
+               | "halt", ";" | "abort", ";" | block | ";" ;
+declaration    = "let", identifier, "=", expression, ";" ;
+assignment     = identifier, "=", expression, ";" ;
+call_statement = call, ";" ;
+input_statement = "input", "(", identifier, ")", ";" ;
+if_statement   = "if", "(", expression, ")", block,
+                 [ "else", ( block | if_statement ) ] ;
+while_statement = "while", "(", expression, ")", block ;
+return_statement = "return", expression, ";" ;
+
+expression     = sum, [ comparison, sum ] ;
+comparison     = "<" | "<=" | ">" | ">=" | "==" | "!=" ;
+sum            = unary, { ( "+" | "-" ), unary } ;
+unary          = ( "+" | "-" ), unary | primary ;
+primary        = decimal | call | identifier | "(", expression, ")" ;
+call           = identifier, "(", [ arguments ], ")" ;
+arguments      = expression, { ",", expression } ;
+
+identifier     = letter_or_underscore, { letter_or_underscore | digit } ;
+letter_or_underscore = "A" ... "Z" | "a" ... "z" | "_" ;
+decimal        = digit, { digit } ;
+digit          = "0" ... "9" ;
+
+(* Keywords are excluded from identifier. ... denotes an inclusive character
+   range only in the lexical productions above. A sign is a separate token.
+   The 2147483648 magnitude exception is a static rule, not token folding. *)

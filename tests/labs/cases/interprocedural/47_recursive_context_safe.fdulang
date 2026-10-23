@@ -1,0 +1,15 @@
+fn probe(value) {
+    if (value == 1) { abort; }
+    return 0;
+}
+
+fn recur(depth, value) {
+    if (depth == 0) { return probe(value); }
+    return recur(depth - 1, value);
+}
+
+fn main() {
+    recur(2, 0);
+    recur(2, 2);
+    halt;
+}

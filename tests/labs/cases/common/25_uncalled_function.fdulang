@@ -1,0 +1,6 @@
+fn unused() {
+    abort;
+}
+fn main() {
+    halt;
+}

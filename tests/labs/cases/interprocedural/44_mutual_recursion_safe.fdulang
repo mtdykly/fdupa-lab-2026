@@ -1,0 +1,15 @@
+fn even(value) {
+    if (value == 0) { return 0; }
+    return odd(value - 1);
+}
+
+fn odd(value) {
+    if (value == 0) { return 0; }
+    return even(value - 1);
+}
+
+fn main() {
+    let result = even(4);
+    if (result != 0) { abort; }
+    halt;
+}

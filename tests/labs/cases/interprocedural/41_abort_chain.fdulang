@@ -1,0 +1,15 @@
+fn fail() {
+    abort;
+    return 0;
+}
+
+fn relay() {
+    fail();
+    abort;
+    return 0;
+}
+
+fn main() {
+    relay();
+    abort;
+}

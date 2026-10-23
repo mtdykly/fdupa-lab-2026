@@ -1,0 +1,8 @@
+fn stop() {
+    halt;
+}
+
+fn main() {
+    let result = stop() + 2147483647 + 1;
+    abort;
+}

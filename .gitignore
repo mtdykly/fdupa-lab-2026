@@ -1,0 +1,25 @@
+# Build products
+/build/
+/build-*/
+**/CMakeFiles/
+**/CMakeCache.txt
+**/Testing/
+*.exe
+*.obj
+*.o
+*.pdb
+*.ilk
+*.a
+*.lib
+.vs/
+.vscode/
+
+# Local test output
+/results/
+**/__pycache__/
+*.py[cod]
+
+# Defense in depth only; release isolation also checks tracked content and history.
+/instructor/
+/reference/
+/solutions/

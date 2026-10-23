@@ -1,0 +1,8 @@
+fn zero() {
+    return 0;
+}
+fn main() {
+    let result = zero();
+    if (result != 0) { abort; }
+    halt;
+}

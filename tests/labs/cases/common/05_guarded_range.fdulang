@@ -1,0 +1,10 @@
+fn main() {
+    let x = 0;
+    input(x);
+    if (x < 0) { halt; }
+    if (x > 10) { halt; }
+    if (x < 0) { abort; }
+    if (x > 10) { abort; }
+    if (x == 5) { abort; }
+    halt;
+}

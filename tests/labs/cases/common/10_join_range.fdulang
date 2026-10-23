@@ -1,0 +1,11 @@
+fn main() {
+    let choice = 0;
+    input(choice);
+    let x = 0;
+    if (choice < 0) { x = 2; }
+    else { x = 4; }
+    if (x < 2) { abort; }
+    if (x > 4) { abort; }
+    if (x == 2) { abort; }
+    halt;
+}

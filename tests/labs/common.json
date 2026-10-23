@@ -1,0 +1,721 @@
+{
+  "format_version": 1,
+  "suite": "common",
+  "semantics": "FDULang 0.1; explicit abort reachability from main",
+  "cases": [
+    {
+      "id": "00_no_abort",
+      "title": "No explicit termination error",
+      "group": "common",
+      "category": "basics",
+      "source": "cases/common/00_no_abort.fdulang",
+      "source_sha256": "6399b4befb77b49708fe876f4370251b43bbc9cdb1ea96c4d4c20ea8b0250962",
+      "aborts": []
+    },
+    {
+      "id": "01_direct",
+      "title": "Direct reachable site",
+      "group": "common",
+      "category": "basics",
+      "source": "cases/common/01_direct.fdulang",
+      "source_sha256": "03332a7c0c50fd92f1420c734ea0376f5a40765d4327b17ddae38c7cf42286a2",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 16,
+            "line": 2,
+            "column": 5
+          },
+          "reachable": true,
+          "witness_input": ""
+        }
+      ]
+    },
+    {
+      "id": "02_after_halt",
+      "title": "Unreachable after halt",
+      "group": "common",
+      "category": "basics",
+      "source": "cases/common/02_after_halt.fdulang",
+      "source_sha256": "21f3ab6777a9aa783df4c73eb066d0e3a988ba8865a95828c7bfe144a56e6e05",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 26,
+            "line": 3,
+            "column": 5
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "03_constant_branches",
+      "title": "Constant true and false branches",
+      "group": "common",
+      "category": "basics",
+      "source": "cases/common/03_constant_branches.fdulang",
+      "source_sha256": "c26f71032f10461b262301409f748a67738dae657c2abc5a0a82c40a7ffe0437",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 29,
+            "line": 2,
+            "column": 18
+          },
+          "reachable": true,
+          "witness_input": ""
+        },
+        {
+          "id": "A2",
+          "function": "main",
+          "location": {
+            "offset": 49,
+            "line": 3,
+            "column": 12
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "04_input_sign",
+      "title": "Both input partitions have a witness",
+      "group": "common",
+      "category": "basics",
+      "source": "cases/common/04_input_sign.fdulang",
+      "source_sha256": "70aaa07e334697d5644a3098292905fd02a99f71632e8d6335d56eb1f380e088",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 58,
+            "line": 4,
+            "column": 18
+          },
+          "reachable": true,
+          "witness_input": "-1\n"
+        },
+        {
+          "id": "A2",
+          "function": "main",
+          "location": {
+            "offset": 85,
+            "line": 5,
+            "column": 19
+          },
+          "reachable": true,
+          "witness_input": "0\n"
+        }
+      ]
+    },
+    {
+      "id": "05_guarded_range",
+      "title": "Input range guards",
+      "group": "common",
+      "category": "interval",
+      "source": "cases/common/05_guarded_range.fdulang",
+      "source_sha256": "20a735ffef331902e67f44919136cc15afb5ea8102da095649123905a8b77f79",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 109,
+            "line": 6,
+            "column": 18
+          },
+          "reachable": false
+        },
+        {
+          "id": "A2",
+          "function": "main",
+          "location": {
+            "offset": 136,
+            "line": 7,
+            "column": 19
+          },
+          "reachable": false
+        },
+        {
+          "id": "A3",
+          "function": "main",
+          "location": {
+            "offset": 163,
+            "line": 8,
+            "column": 19
+          },
+          "reachable": true,
+          "witness_input": "5\n"
+        }
+      ]
+    },
+    {
+      "id": "06_strict_boundary",
+      "title": "Strict inequalities at a singleton",
+      "group": "common",
+      "category": "interval",
+      "source": "cases/common/06_strict_boundary.fdulang",
+      "source_sha256": "75170df01ce08e3f070027c601bd9251ab5e314b107408ac54de040959360925",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 109,
+            "line": 6,
+            "column": 19
+          },
+          "reachable": false
+        },
+        {
+          "id": "A2",
+          "function": "main",
+          "location": {
+            "offset": 136,
+            "line": 7,
+            "column": 19
+          },
+          "reachable": true,
+          "witness_input": "1\n"
+        }
+      ]
+    },
+    {
+      "id": "07_assignment",
+      "title": "Overwriting and self assignment",
+      "group": "common",
+      "category": "interval",
+      "source": "cases/common/07_assignment.fdulang",
+      "source_sha256": "b6fb45e2f0716e81a9dfd81bfb46fe21d336696a72f3bf842e1ec571583e3618",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 75,
+            "line": 5,
+            "column": 19
+          },
+          "reachable": false
+        },
+        {
+          "id": "A2",
+          "function": "main",
+          "location": {
+            "offset": 102,
+            "line": 6,
+            "column": 19
+          },
+          "reachable": true,
+          "witness_input": ""
+        }
+      ]
+    },
+    {
+      "id": "08_negation",
+      "title": "Negation over a guarded range",
+      "group": "common",
+      "category": "interval",
+      "source": "cases/common/08_negation.fdulang",
+      "source_sha256": "6344238b67d8538f9f77c5b8913a3d7b7f756e8f8e3cffd6a20639df76c50928",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 126,
+            "line": 7,
+            "column": 19
+          },
+          "reachable": false
+        },
+        {
+          "id": "A2",
+          "function": "main",
+          "location": {
+            "offset": 152,
+            "line": 8,
+            "column": 18
+          },
+          "reachable": false
+        },
+        {
+          "id": "A3",
+          "function": "main",
+          "location": {
+            "offset": 179,
+            "line": 9,
+            "column": 19
+          },
+          "reachable": true,
+          "witness_input": "-3\n"
+        }
+      ]
+    },
+    {
+      "id": "09_integer_edges",
+      "title": "Safe arithmetic near integer endpoints",
+      "group": "common",
+      "category": "interval",
+      "source": "cases/common/09_integer_edges.fdulang",
+      "source_sha256": "a856d96455dfb97a3075b71ae66977f91c55f5eec45f5559fe9cdb2986c4df24",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 100,
+            "line": 4,
+            "column": 35
+          },
+          "reachable": false
+        },
+        {
+          "id": "A2",
+          "function": "main",
+          "location": {
+            "offset": 143,
+            "line": 5,
+            "column": 35
+          },
+          "reachable": false
+        },
+        {
+          "id": "A3",
+          "function": "main",
+          "location": {
+            "offset": 172,
+            "line": 6,
+            "column": 21
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "10_join_range",
+      "title": "Convex join preserves outer bounds",
+      "group": "common",
+      "category": "join",
+      "source": "cases/common/10_join_range.fdulang",
+      "source_sha256": "2684e87c59e1d3a903bd3c959c00288be0784dc7b452876f13235e950568ad58",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 134,
+            "line": 7,
+            "column": 18
+          },
+          "reachable": false
+        },
+        {
+          "id": "A2",
+          "function": "main",
+          "location": {
+            "offset": 160,
+            "line": 8,
+            "column": 18
+          },
+          "reachable": false
+        },
+        {
+          "id": "A3",
+          "function": "main",
+          "location": {
+            "offset": 187,
+            "line": 9,
+            "column": 19
+          },
+          "reachable": true,
+          "witness_input": "-1\n"
+        }
+      ]
+    },
+    {
+      "id": "11_join_hole",
+      "title": "Convex domains lose a hole",
+      "group": "common",
+      "category": "join",
+      "source": "cases/common/11_join_hole.fdulang",
+      "source_sha256": "36deeb253580b39c9e237f5437e9e51e065cddca44d42868cc60cac55861e09a",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 135,
+            "line": 7,
+            "column": 19
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "12_join_reachable",
+      "title": "Positive counterpart of a joined branch",
+      "group": "common",
+      "category": "join",
+      "source": "cases/common/12_join_reachable.fdulang",
+      "source_sha256": "4fafff04eec56bf926b3e2a6d31fc22972a139ac9bc95bcbc2507298e2d1ba63",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 135,
+            "line": 7,
+            "column": 19
+          },
+          "reachable": true,
+          "witness_input": "0\n"
+        }
+      ]
+    },
+    {
+      "id": "13_zero_iteration",
+      "title": "Zero iterations",
+      "group": "common",
+      "category": "loops",
+      "source": "cases/common/13_zero_iteration.fdulang",
+      "source_sha256": "c7cceb489c2870cfd94ddf124ee38323c61c51717e5a87fbd23661b98c1502fd",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 55,
+            "line": 4,
+            "column": 9
+          },
+          "reachable": false
+        },
+        {
+          "id": "A2",
+          "function": "main",
+          "location": {
+            "offset": 86,
+            "line": 6,
+            "column": 19
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "14_counting_loop",
+      "title": "A finite counting loop",
+      "group": "common",
+      "category": "loops",
+      "source": "cases/common/14_counting_loop.fdulang",
+      "source_sha256": "fc0192cc55f7265d6b68b40df0b077cacca77180e6120e10075e374dea9f95e1",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 90,
+            "line": 6,
+            "column": 19
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "15_loop_reachable",
+      "title": "Reachable inside a loop",
+      "group": "common",
+      "category": "loops",
+      "source": "cases/common/15_loop_reachable.fdulang",
+      "source_sha256": "1c7b42cc2e4faf4919ba0254526a0a947f65786fa55323443463b42a4a36d6c4",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 88,
+            "line": 5,
+            "column": 23
+          },
+          "reachable": true,
+          "witness_input": ""
+        },
+        {
+          "id": "A2",
+          "function": "main",
+          "location": {
+            "offset": 120,
+            "line": 7,
+            "column": 18
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "16_nontermination",
+      "title": "A nonterminating loop",
+      "group": "common",
+      "category": "loops",
+      "source": "cases/common/16_nontermination.fdulang",
+      "source_sha256": "6d41f05a47e38773bc3bd4b7ca305cb70495eb2ffd6631810ef21ada2f7bddd7",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 73,
+            "line": 6,
+            "column": 5
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "17_relation_difference",
+      "title": "Difference relation is safe",
+      "group": "common",
+      "category": "relations",
+      "source": "cases/common/17_relation_difference.fdulang",
+      "source_sha256": "bb8a86758d449cee3375261eb52f6a3d83fb3dabcd2116b2e03fbadc30fb0faf",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 133,
+            "line": 7,
+            "column": 23
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "18_relation_difference_reachable",
+      "title": "Positive difference relation",
+      "group": "common",
+      "category": "relations",
+      "source": "cases/common/18_relation_difference_reachable.fdulang",
+      "source_sha256": "019c6d61ab745763ebcc257ee96bfe6058d18dec43abe6a60631e7e916ad0221",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 133,
+            "line": 7,
+            "column": 23
+          },
+          "reachable": true,
+          "witness_input": "0\n"
+        }
+      ]
+    },
+    {
+      "id": "19_relation_sum",
+      "title": "Sum relation is safe",
+      "group": "common",
+      "category": "relations",
+      "source": "cases/common/19_relation_sum.fdulang",
+      "source_sha256": "6441aea1fbed126eb86f0547323318146e4ad27aa279e20929f46f0b66a9ec7d",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 135,
+            "line": 7,
+            "column": 24
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "20_relation_sum_reachable",
+      "title": "Positive sum relation",
+      "group": "common",
+      "category": "relations",
+      "source": "cases/common/20_relation_sum_reachable.fdulang",
+      "source_sha256": "f6ced2abc812d69ec33e1da89db166caddd2b2bd5cf4a4ac353d36b882955865",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 135,
+            "line": 7,
+            "column": 24
+          },
+          "reachable": true,
+          "witness_input": "4\n"
+        }
+      ]
+    },
+    {
+      "id": "21_call_parameter_safe",
+      "title": "Constant parameter is safe",
+      "group": "common",
+      "category": "calls",
+      "source": "cases/common/21_call_parameter_safe.fdulang",
+      "source_sha256": "b45182bedcc0793db581b20bffab90a548cc674ae46f262d1673d7363ba60400",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "probe",
+          "location": {
+            "offset": 32,
+            "line": 2,
+            "column": 19
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "22_call_parameter_reachable",
+      "title": "A reachable callee site",
+      "group": "common",
+      "category": "calls",
+      "source": "cases/common/22_call_parameter_reachable.fdulang",
+      "source_sha256": "3dc4d734b10b9da66cc064659fe381919a1c7dcad52bcf4a75f78ecb342d32e4",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "probe",
+          "location": {
+            "offset": 32,
+            "line": 2,
+            "column": 19
+          },
+          "reachable": true,
+          "witness_input": ""
+        }
+      ]
+    },
+    {
+      "id": "23_call_result",
+      "title": "A constant return value",
+      "group": "common",
+      "category": "calls",
+      "source": "cases/common/23_call_result.fdulang",
+      "source_sha256": "3de2d51dfc2904a13dc797da77fbc8117045e0dfd8fd7511acf9b146e3314d58",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 88,
+            "line": 6,
+            "column": 24
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "24_dead_call",
+      "title": "A static call in a dead branch",
+      "group": "common",
+      "category": "calls",
+      "source": "cases/common/24_dead_call.fdulang",
+      "source_sha256": "74d610edc42b7e5cc480929bf97fa40a2b0a74149419a957b8d0314f155c6675",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "trap",
+          "location": {
+            "offset": 16,
+            "line": 2,
+            "column": 5
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "25_uncalled_function",
+      "title": "An entirely uncalled function",
+      "group": "common",
+      "category": "calls",
+      "source": "cases/common/25_uncalled_function.fdulang",
+      "source_sha256": "4759958bf887094b9278f7e1fad4e708250fa3a111d21ecb095a74ad2906dced",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "unused",
+          "location": {
+            "offset": 18,
+            "line": 2,
+            "column": 5
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "26_nonreturning_call",
+      "title": "A call that halts the whole program",
+      "group": "common",
+      "category": "calls",
+      "source": "cases/common/26_nonreturning_call.fdulang",
+      "source_sha256": "86edd576d639197d2d08189bb645518b65376b77d323a3de0e5d4ca371142f47",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 52,
+            "line": 6,
+            "column": 5
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "27_call_local_preservation",
+      "title": "Calls preserve caller local variables",
+      "group": "common",
+      "category": "calls",
+      "source": "cases/common/27_call_local_preservation.fdulang",
+      "source_sha256": "aef1af71786fe90e3594815e5b94153c55cc3417de39a6be7e7b6f13db67a5b7",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 159,
+            "line": 9,
+            "column": 23
+          },
+          "reachable": false
+        },
+        {
+          "id": "A2",
+          "function": "main",
+          "location": {
+            "offset": 191,
+            "line": 10,
+            "column": 24
+          },
+          "reachable": true,
+          "witness_input": "3\n"
+        }
+      ]
+    }
+  ]
+}

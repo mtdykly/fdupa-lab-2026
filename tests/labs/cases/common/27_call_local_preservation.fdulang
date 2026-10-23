@@ -1,0 +1,12 @@
+fn read_value() {
+    let value = 0;
+    input(value);
+    return value;
+}
+fn main() {
+    let saved = 7;
+    let result = read_value();
+    if (saved != 7) { abort; }
+    if (result == 3) { abort; }
+    halt;
+}

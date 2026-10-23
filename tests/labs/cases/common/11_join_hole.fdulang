@@ -1,0 +1,9 @@
+fn main() {
+    let choice = 0;
+    input(choice);
+    let x = 0;
+    if (choice < 0) { x = 0; }
+    else { x = 2; }
+    if (x == 1) { abort; }
+    halt;
+}

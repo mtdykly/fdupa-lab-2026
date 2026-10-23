@@ -1,0 +1,8 @@
+fn main() {
+    let low = -2147483648;
+    let high = 2147483647;
+    if (low + 1 != -2147483647) { abort; }
+    if (high - 1 != 2147483646) { abort; }
+    if (low >= 0) { abort; }
+    halt;
+}

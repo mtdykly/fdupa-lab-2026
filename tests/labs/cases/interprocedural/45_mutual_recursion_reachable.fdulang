@@ -1,0 +1,18 @@
+fn ping(value) {
+    if (value == 0) { abort; }
+    return pong(value - 1);
+}
+
+fn pong(value) {
+    if (value == 0) { abort; }
+    return ping(value - 1);
+}
+
+fn main() {
+    let value = 0;
+    input(value);
+    if (value < 0) { halt; }
+    if (value > 4) { halt; }
+    ping(value);
+    halt;
+}

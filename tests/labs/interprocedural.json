@@ -1,0 +1,435 @@
+{
+  "format_version": 1,
+  "suite": "interprocedural",
+  "semantics": "FDULang 0.1; explicit abort reachability from main",
+  "cases": [
+    {
+      "id": "30_context_same_callee_safe",
+      "title": "Same callee, separate call sites",
+      "group": "interprocedural",
+      "category": "context-depth",
+      "source": "cases/interprocedural/30_context_same_callee_safe.fdulang",
+      "source_sha256": "06cce1c4d85c49267fd21c9d15363cccef8b5735ac7dc679248c3184870cce89",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "probe",
+          "location": {
+            "offset": 40,
+            "line": 2,
+            "column": 23
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "31_context_same_callee_reachable",
+      "title": "Same callee with a reachable branch",
+      "group": "interprocedural",
+      "category": "context-depth",
+      "source": "cases/interprocedural/31_context_same_callee_reachable.fdulang",
+      "source_sha256": "5de227b87586f4855dad462db248d79fe81a79d821a3a94360cd48087f23a5db",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "probe",
+          "location": {
+            "offset": 40,
+            "line": 2,
+            "column": 23
+          },
+          "reachable": true,
+          "witness_input": ""
+        }
+      ]
+    },
+    {
+      "id": "32_context_two_layers_safe",
+      "title": "Two call-string layers are needed",
+      "group": "interprocedural",
+      "category": "context-depth",
+      "source": "cases/interprocedural/32_context_two_layers_safe.fdulang",
+      "source_sha256": "f1de56c93e3940517b4bf9db2ef938d4f35f2fef6108321fb4b411d4bf744a9d",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "probe",
+          "location": {
+            "offset": 40,
+            "line": 2,
+            "column": 23
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "33_context_two_layers_reachable",
+      "title": "Two layers with a reachable branch",
+      "group": "interprocedural",
+      "category": "context-depth",
+      "source": "cases/interprocedural/33_context_two_layers_reachable.fdulang",
+      "source_sha256": "14f69dba4a0a2d5e32b32b86d582c611f27c3811a78002e3b2faf954c6067d6f",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "probe",
+          "location": {
+            "offset": 40,
+            "line": 2,
+            "column": 23
+          },
+          "reachable": true,
+          "witness_input": ""
+        }
+      ]
+    },
+    {
+      "id": "34_parameter_difference_safe",
+      "title": "Difference relation between parameters",
+      "group": "interprocedural",
+      "category": "parameter-relations",
+      "source": "cases/interprocedural/34_parameter_difference_safe.fdulang",
+      "source_sha256": "9938afee3944c139a96fe8833736e7fec5a7893ac20939cabaf8989047111acf",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "check_pair",
+          "location": {
+            "offset": 44,
+            "line": 2,
+            "column": 23
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "35_parameter_sum_safe",
+      "title": "Sum relation between parameters",
+      "group": "interprocedural",
+      "category": "parameter-relations",
+      "source": "cases/interprocedural/35_parameter_sum_safe.fdulang",
+      "source_sha256": "3073618f39ec38dfa16ff5cca45dc4bf8eac3c7920c84efdb51f5cde66589e81",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "check_pair",
+          "location": {
+            "offset": 45,
+            "line": 2,
+            "column": 24
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "36_parameter_sum_reachable",
+      "title": "A violated sum relation",
+      "group": "interprocedural",
+      "category": "parameter-relations",
+      "source": "cases/interprocedural/36_parameter_sum_reachable.fdulang",
+      "source_sha256": "35ef145f7b718548001e022144c84f7cfda0704fe69b206dff998c2d7a3668cd",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "check_pair",
+          "location": {
+            "offset": 45,
+            "line": 2,
+            "column": 24
+          },
+          "reachable": true,
+          "witness_input": "4\n"
+        }
+      ]
+    },
+    {
+      "id": "37_return_constant_safe",
+      "title": "A constant return summary",
+      "group": "interprocedural",
+      "category": "return-summary",
+      "source": "cases/interprocedural/37_return_constant_safe.fdulang",
+      "source_sha256": "93384df32b70bd8bd9368077ae59de705a63ddc5235f30fbf8777a10b6538d9e",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 91,
+            "line": 7,
+            "column": 24
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "38_multiple_returns_safe",
+      "title": "Bounds of multiple returns",
+      "group": "interprocedural",
+      "category": "return-summary",
+      "source": "cases/interprocedural/38_multiple_returns_safe.fdulang",
+      "source_sha256": "20f1a0ac267b28e6cf6406fee726bcdb7942fb67511e4bff46f912b905e25c2b",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 231,
+            "line": 12,
+            "column": 23
+          },
+          "reachable": false
+        },
+        {
+          "id": "A2",
+          "function": "main",
+          "location": {
+            "offset": 262,
+            "line": 13,
+            "column": 23
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "39_multiple_returns_reachable",
+      "title": "A return-summary hole and a reachable result",
+      "group": "interprocedural",
+      "category": "return-summary",
+      "source": "cases/interprocedural/39_multiple_returns_reachable.fdulang",
+      "source_sha256": "a35b70bfe19d2bc3e9bdba01ee845db312e7d6315eee89f80673e1522a4bc9bb",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 232,
+            "line": 12,
+            "column": 24
+          },
+          "reachable": false
+        },
+        {
+          "id": "A2",
+          "function": "main",
+          "location": {
+            "offset": 264,
+            "line": 13,
+            "column": 24
+          },
+          "reachable": true,
+          "witness_input": "0\n"
+        }
+      ]
+    },
+    {
+      "id": "40_halt_chain",
+      "title": "Global halt prevents caller continuations",
+      "group": "interprocedural",
+      "category": "nonreturning",
+      "source": "cases/interprocedural/40_halt_chain.fdulang",
+      "source_sha256": "38608d5a1ce5e6f976c18d3ab8b42f2187455a2f683f256047de50791b33e159",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "relay",
+          "location": {
+            "offset": 54,
+            "line": 7,
+            "column": 5
+          },
+          "reachable": false
+        },
+        {
+          "id": "A2",
+          "function": "main",
+          "location": {
+            "offset": 107,
+            "line": 13,
+            "column": 5
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "41_abort_chain",
+      "title": "Global abort prevents caller continuations",
+      "group": "interprocedural",
+      "category": "nonreturning",
+      "source": "cases/interprocedural/41_abort_chain.fdulang",
+      "source_sha256": "9e21b5aa098e8a038fdf519b8f3842879e80552ce8cd5e6a59499cf8f78b2cad",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "fail",
+          "location": {
+            "offset": 16,
+            "line": 2,
+            "column": 5
+          },
+          "reachable": true,
+          "witness_input": ""
+        },
+        {
+          "id": "A2",
+          "function": "relay",
+          "location": {
+            "offset": 69,
+            "line": 8,
+            "column": 5
+          },
+          "reachable": false
+        },
+        {
+          "id": "A3",
+          "function": "main",
+          "location": {
+            "offset": 122,
+            "line": 14,
+            "column": 5
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "42_direct_recursion_safe",
+      "title": "A recursive constant return",
+      "group": "interprocedural",
+      "category": "recursion",
+      "source": "cases/interprocedural/42_direct_recursion_safe.fdulang",
+      "source_sha256": "ea1a55b22c095a5a82717e85f5edd49dd84aa64ffdf1822b5a0435acd4dfd91a",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 158,
+            "line": 8,
+            "column": 24
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "43_direct_recursion_reachable",
+      "title": "A recursive reachable base case",
+      "group": "interprocedural",
+      "category": "recursion",
+      "source": "cases/interprocedural/43_direct_recursion_reachable.fdulang",
+      "source_sha256": "3714d59e6ac82aa18bfb98ed346d904b463c91a5c3cd0f793da15168d7d95f31",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "visit",
+          "location": {
+            "offset": 40,
+            "line": 2,
+            "column": 23
+          },
+          "reachable": true,
+          "witness_input": ""
+        }
+      ]
+    },
+    {
+      "id": "44_mutual_recursion_safe",
+      "title": "Constant returns through mutual recursion",
+      "group": "interprocedural",
+      "category": "recursion",
+      "source": "cases/interprocedural/44_mutual_recursion_safe.fdulang",
+      "source_sha256": "e9e561d3b241b017e48562743e4338e7d187ad18d23a728896cc29c67dea3f0b",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 223,
+            "line": 13,
+            "column": 24
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "45_mutual_recursion_reachable",
+      "title": "Both mutually recursive base cases",
+      "group": "interprocedural",
+      "category": "recursion",
+      "source": "cases/interprocedural/45_mutual_recursion_reachable.fdulang",
+      "source_sha256": "fa5f45b32007e18be648302ddcec8179d98ac7c897075fd7aa563baaaf762cbd",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "ping",
+          "location": {
+            "offset": 39,
+            "line": 2,
+            "column": 23
+          },
+          "reachable": true,
+          "witness_input": "0\n"
+        },
+        {
+          "id": "A2",
+          "function": "pong",
+          "location": {
+            "offset": 118,
+            "line": 7,
+            "column": 23
+          },
+          "reachable": true,
+          "witness_input": "1\n"
+        }
+      ]
+    },
+    {
+      "id": "46_infinite_recursion",
+      "title": "No finite return from infinite recursion",
+      "group": "interprocedural",
+      "category": "recursion",
+      "source": "cases/interprocedural/46_infinite_recursion.fdulang",
+      "source_sha256": "b07d1b36ffd9ac524f976d6f1e1a9aaa7b7ec32611aa5e5f85f96079378aeef7",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "main",
+          "location": {
+            "offset": 62,
+            "line": 7,
+            "column": 5
+          },
+          "reachable": false
+        }
+      ]
+    },
+    {
+      "id": "47_recursive_context_safe",
+      "title": "Recursive calls erase older context",
+      "group": "interprocedural",
+      "category": "context-depth",
+      "source": "cases/interprocedural/47_recursive_context_safe.fdulang",
+      "source_sha256": "d1c51dd7f2a6803328fade97359357d8718b2153d35c178c4b390eea3952a2e5",
+      "aborts": [
+        {
+          "id": "A1",
+          "function": "probe",
+          "location": {
+            "offset": 40,
+            "line": 2,
+            "column": 23
+          },
+          "reachable": false
+        }
+      ]
+    }
+  ]
+}

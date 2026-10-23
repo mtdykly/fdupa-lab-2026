@@ -1,0 +1,10 @@
+fn probe(value) {
+    if (value == 1) { abort; }
+    return 0;
+}
+
+fn main() {
+    probe(0);
+    probe(2);
+    halt;
+}

@@ -1,0 +1,14 @@
+fn stop() {
+    halt;
+}
+
+fn relay() {
+    stop();
+    abort;
+    return 0;
+}
+
+fn main() {
+    relay();
+    abort;
+}

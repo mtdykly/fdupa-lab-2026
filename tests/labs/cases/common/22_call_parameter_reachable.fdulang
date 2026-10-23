@@ -1,0 +1,8 @@
+fn probe(v) {
+    if (v != 0) { abort; }
+    return 0;
+}
+fn main() {
+    probe(1);
+    halt;
+}

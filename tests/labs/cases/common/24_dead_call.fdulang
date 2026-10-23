@@ -1,0 +1,7 @@
+fn trap() {
+    abort;
+}
+fn main() {
+    if (1 > 2) { trap(); }
+    halt;
+}

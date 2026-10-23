@@ -1,0 +1,9 @@
+fn seven() {
+    return 7;
+}
+
+fn main() {
+    let result = seven();
+    if (result != 7) { abort; }
+    halt;
+}

@@ -1,0 +1,14 @@
+fn main() {
+    let limit = 0;
+    input(limit);
+    if (limit < 0) { halt; }
+    if (limit > 10) { halt; }
+
+    let i = 0;
+    while (i < limit) {
+        let next = i + 1; // Reinitialized on every iteration.
+        i = next;
+    }
+    if (i != limit) { abort; }
+    halt;
+}

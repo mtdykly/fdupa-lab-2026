@@ -1,0 +1,19 @@
+fn is_even(n) {
+    if (n == 0) { return 1; }
+    return is_odd(n - 1);
+}
+
+fn is_odd(n) {
+    if (n == 0) { return 0; }
+    return is_even(n - 1);
+}
+
+fn main() {
+    let n = 0;
+    input(n);
+    if (n < 0) { halt; }
+    if (n > 10) { halt; }
+
+    if (is_even(n) == 0) { abort; }
+    halt;
+}
